@@ -12,6 +12,7 @@ This project was assembled using an isolated virtual environment, created with `
 - Pandas
 - scikit-learn
 - matplotlib
+- ipython
 
 The steps below walk-through the process of installing these dependencies and making them available to the Jupyter template notebook via a dedicated Python 3 kernel.
 
@@ -33,10 +34,10 @@ pip install -r requirements.txt
 ```
 
 ### Creating a Jupyter Kernel for the Virtual Environment
-Now that we have an isolated virtual environment for this project we need to be able to access it via Jupyter kernel. This is achieved with the following terminal commands,
+Now that we have an isolated virtual environment for this project we need to be able to access it via Jupyter kernel. This is achieved with the following terminal commands (while the virtual environment is activated),
 
 ```bash
-ipython kernel install --user --name=pymc3_proj
+venv/bin/ipython kernel install --user --name=pymc3_proj
 ```
 
 The `pymc3_proj` should now be available from within Jupyter to associate with the notebook in this repo! Should you need to remove the kernel at a later date, then the location of the `kernels` directory (which will contain a dedicated directory for the `pymc3_proj` kernel), can be found by running,
