@@ -12,7 +12,8 @@ pandas = "*"
 
 [dev-packages]
 jupyterlab = "*"
-"flake8" = "*"
+"autopep8" = "*"
+jupyterlab-code-formatter = "*"
 
 [requires]
 python_version = "3.6"
