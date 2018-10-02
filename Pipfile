@@ -4,14 +4,15 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-"pymc3" = "==3.3"
-scikit-learn = "==0.19.1"
-matplotlib = "==2.1.1"
-numpy = "==1.14.0"
-pandas = "==0.22.0"
+"pymc3" = "*"
+scikit-learn = "*"
+matplotlib = "*"
+numpy = "*"
+pandas = "*"
 
 [dev-packages]
 jupyterlab = "*"
+"flake8" = "*"
 
 [requires]
 python_version = "3.6"
