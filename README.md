@@ -1,49 +1,63 @@
 # Example PyMC3 Project for Bayesian Data Analysis
-The repository contains an example Bayesian data analysis, using data collected from a set of multi-lot on-line auction events executed in Europen markets, over the past year. It contains a Jupyter notebook in which we build interpretable models of the average Return-on-Reserve, using variables that describe various facets of multi-lot on-line auction events (e.g. the average number of bidders per-lot), using probabilitic programming methods (from the PyMC3 package), for (Bayesian) model inference.
 
-As we have already mentioned, the ultimate aim of this endeavour is for this repo to serve as a template project-workflow for conducting an end-to-end Bayesian data analysis using PyMC3. It includes many helper functions for automating otherwise tedious tasks (e.g. interacting with Theano to score models on test data, or handling PyMC3 back-ends to avoid having to recompute MCMC sampling), as well as examples of how data pre-processing can be integrated with Scikit-Learn.
+This repository contains an example Bayesian data analysis, using data collected from a set of multiple-lot online auction events executed in Europen markets, over the period of a year. It contains a Jupyter notebook in which we build interpretable models of the average Return-on-Reserve (RoR), using variables that describe various facets of multiple-lot online auction events - e.g. the average number of bidders per-lot. We use probabilitic programming methods as implemented in the PyMC3 package, for (Bayesian) model inference.
+
+The ultimate aim of this endeavour is for this repository is to serve as a template project-workflow for conducting an end-to-end Bayesian data analysis using PyMC3. It includes many helper functions for automating otherwise tedious tasks (e.g. interacting with Theano to score models on test data, or handling PyMC3 back-ends to avoid having to recompute MCMC sampling), as well as examples of how data pre-processing can be integrated with Scikit-Learn.
 
 The overall approach to statistical (scientific) workflow has been heavily inspired by the book 'Statistical Rethinking - A Bayesian Course with Examples in R and Stan', by Richard McElreath http://xcelab.net/rm/statistical-rethinking/, which is the most significant book on statistics and modelling that I have read during a career spanning more than a decade.
 
 ## Project Dependencies
-This project was assembled using an isolated virtual environment, created with `virtualenv`. The exact details (e.g. versions) of the packages used are contained in the requirements.txt file found the root directory. At a very high-level this is essentially:
-- PyMC3
-- numpy
-- Pandas
-- scikit-learn
-- matplotlib
-- ipython
 
-The steps below walk-through the process of installing these dependencies and making them available to the Jupyter template notebook via a dedicated Python 3 kernel.
+We use [pipenv](https://docs.pipenv.org) for managing project dependencies and Python environments (i.e. virtual environments). All of the direct packages dependencies required to run the code (e.g. NumPy for arrays/tensors and Pandas for DataFrames), as well as all the packages used during development (e.g. IPython and JupyterLab as the chosen development environment), are described in the `Pipfile`. Their **precise** downstream dependencies are described in `Pipfile.lock`.
 
-### Creating a Virtual Environment
-I am assuming that the reader will be using OS X, is familiar with using the terminal and that they have Python 3 and the Jupyter package installed and made generally available (i.e. they are on the PATH). From within the root directory, run the following commands to create a virtual environment (called `venv`) and activate it,
+### Installing Pipenv
+
+To get started with Pipenv, first of all download it - assuming that there is a global version of Python available on your system and on the PATH, then this can be achieved by running the following command,
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate
+pip3 install pipenv
 ```
 
-To deactivate the virtual environment at a later date (e.g. after you run the steps below), just use `deactivate` from the command line.
-
-### Install Dependencies from requirements.txt
-To install the dependencies for this project, run the following commands from the terminal next,
+Pipenv is also available to install from many non-Python package managers. For example, on OS X it can be installed using the [Homebrew](https://brew.sh) package manager, with the following terminal command,
 
 ```bash
-pip install -r requirements.txt
+brew install pipenv
 ```
 
-### Creating a Jupyter Kernel for the Virtual Environment
-Now that we have an isolated virtual environment for this project we need to be able to access it via Jupyter kernel. This is achieved with the following terminal commands (while the virtual environment is activated),
+For more information, including advanced configuration options, see the [official pipenv documentation](https://docs.pipenv.org).
+
+### Installing this Projects' Dependencies
+
+Make sure that you're in the project's root directory (the same one in which the `Pipfile` resides), and then run,
 
 ```bash
-venv/bin/ipython kernel install --user --name=pymc3_proj
+pipenv install --dev
 ```
 
-The `pymc3_proj` should now be available from within Jupyter to associate with the notebook in this repo! Should you need to remove the kernel at a later date, then the location of the `kernels` directory (which will contain a dedicated directory for the `pymc3_proj` kernel), can be found by running,
+This will install all of the direct project dependencies as well as the development dependencies (the latter a consequence of the `--dev` flag).
+
+### Running Python, IPython and JupyterLab from the Project's Virtual Environment
+
+In order to continue development in a Python environment that precisely mimics the one the project was initially developed with, use Pipenv from the command line as follows,
 
 ```bash
-jupyter kernel --data-dir
+pipenv run python3
 ```
 
-Then, it's simply a matter of running `rm -rf kernels/pymc3_proj` from within the directory returned from the above command.
+The `python3` command could just as well be `ipython3` or the JupterLab, for example,
+
+```bash
+pipenv run jupyter lab
+```
+
+This will fire-up JupyterLab *where the default Python 3 kernel includes all of the direct and development project dependencies*. This is how we advise that the notebooks within this project are used.
+
+### Pipenv Shells
+
+Prepending `pipenv` to every command you want to run within the context of your Pipenv-managed virtual environment, can get very tedious. This can be avoided by entering into a Pipenv-managed shell,
+
+```bash
+pipenv shell
+```
+
+which is equivalent to 'activating' the virtual environment. Any command will now be executed within the virtual environment. Use `exit` to leave the shell session.

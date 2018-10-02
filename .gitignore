@@ -1,4 +1,5 @@
-**/.ipynb_checkpoints/**
-**/__pycache__/**
-venv/**
+.vscode
+.ipynb_checkpoints
+__pycache__
 .DS_Store
+results/*.pkl

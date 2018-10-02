@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+"pymc3" = "*"
+scikit-learn = "*"
+matplotlib = "*"
+numpy = "*"
+pandas = "*"
+
+[dev-packages]
+jupyterlab = "*"
+"autopep8" = "*"
+jupyterlab-code-formatter = "*"
+
+[requires]
+python_version = "3.6"
