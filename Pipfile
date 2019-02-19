@@ -9,11 +9,10 @@ scikit-learn = "*"
 matplotlib = "*"
 numpy = "*"
 pandas = "*"
+seaborn = "*"
 
 [dev-packages]
 jupyterlab = "*"
-"autopep8" = "*"
-jupyterlab-code-formatter = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.7"
