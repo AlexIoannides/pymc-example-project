@@ -1,10 +1,10 @@
 # Example PyMC3 Project for Bayesian Data Analysis
 
-This repository contains an example Bayesian data analysis, using data collected from a set of multiple-lot online auction events executed in Europen markets, over the period of a year. It contains a Jupyter notebook in which we build interpretable models of the average Return-on-Reserve (RoR), using variables that describe various facets of multiple-lot online auction events - e.g. the average number of bidders per-lot. We use probabilitic programming methods as implemented in the PyMC3 package, for (Bayesian) model inference.
+This notebook contains the code required to conduct a Bayesian data analysis on data collected from a set of multiple-lot online auction events executed in Europen markets, over the course of a year. We will build interpretable models of the average Return-on-Reserve (RoR), using variables that describe various facets of multiple-lot online auction events - e.g. the average number of bidders per-lot, the number of lots offered, etc..
 
-The ultimate aim of this endeavour is for this repository is to serve as a template project-workflow for conducting an end-to-end Bayesian data analysis using PyMC3. It includes many helper functions for automating otherwise tedious tasks (e.g. interacting with Theano to score models on test data, or handling PyMC3 back-ends to avoid having to recompute MCMC sampling), as well as examples of how data pre-processing can be integrated with Scikit-Learn.
+The ultimate aim of this endeavour is for this notebook (and it's surrounding directory structure) to serve as a template workflow for conducting an end-to-end Bayesian data analysis using PyMC3. It includes many helper functions for automating otherwise tedious tasks (e.g. interacting with Theano to score models on test data) and examples of how data pre-processing can be integrated with Scikit-Learn.
 
-The overall approach to statistical (scientific) workflow has been heavily inspired by the book 'Statistical Rethinking - A Bayesian Course with Examples in R and Stan', by Richard McElreath http://xcelab.net/rm/statistical-rethinking/, which is the most significant book on statistics and modelling that I have read during a career spanning more than a decade.
+The overall approach has been heavily inspired by the book 'Statistical Rethinking - a Bayesian Course with Examples in R and Stan', by Richard McElreath http://xcelab.net/rm/statistical-rethinking/, which is the most significant book on statistics and modelling that I have read during a career spanning more than a decade. Credit also goes to 'Bayesian Data Analysis', by Andrew Gelman & Co. http://www.stat.columbia.edu/~gelman/book/, which I refer to on an on-going basis.
 
 ## Project Dependencies
 
