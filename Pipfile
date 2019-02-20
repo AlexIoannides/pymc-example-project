@@ -10,6 +10,7 @@ matplotlib = "*"
 numpy = "*"
 pandas = "*"
 seaborn = "*"
+arviz = "*"
 
 [dev-packages]
 jupyterlab = "*"
